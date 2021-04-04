@@ -25,7 +25,7 @@ def app():
     st.sidebar.header('Training Parameters:')
 
     def get_input():
-        with open('./Logo and Stock Symbols/stock symbols.csv', 'r') as stock_file:
+        with open('./stock symbols.csv', 'r') as stock_file:
             stock_list = pd.read_csv(stock_file)
             symbols = stock_list.iloc[:, 0]
             selected = st.selectbox(label="", options=symbols)
