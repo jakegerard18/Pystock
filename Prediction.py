@@ -25,12 +25,12 @@ def app():
     st.sidebar.header('Training Parameters:')
 
     def get_input():
-        with open('./stock symbols.csv', 'r') as stock_file:
+        with open('./stock symbols.csv', 'r', encoding='utf-8-sig') as stock_file:
             stock_list = pd.read_csv(stock_file)
             symbols = stock_list.iloc[:, 0]
             selected = st.selectbox(label="", options=symbols)
-            index = stock_list[stock_list['ï»¿Symbol'] == selected].index.values
-            stock_symbol = stock_list['ï»¿Symbol'][index].to_string(index=False)
+            index = stock_list[stock_list['Symbol'] == selected].index.values
+            stock_symbol = stock_list['Symbol'][index].to_string(index=False)
             company_name = stock_list['Name'][index].to_string(index=False)
         start_date = st.sidebar.date_input("Starting Date:", value=(datetime.today() - timedelta(days=365*3)), min_value=datetime(1817, 3, 8), max_value=datetime.today())
         end_date = st.sidebar.date_input("Ending Date:", min_value=datetime(1817, 3, 8), max_value=datetime.today())
