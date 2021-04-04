@@ -8,6 +8,6 @@ def app():
     A stock analysis tool built with Python.
     """)
 
-    image = Image.open('./Logo and Stock Symbols/pylogo-1200.png')
+    image = Image.open('./pylogo-1200.png')
 
     st.image(image)
