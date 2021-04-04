@@ -22,7 +22,7 @@ def app():
     start_date = st.sidebar.date_input("", value=(datetime.today() - timedelta(days=365 * 3)),
                                        min_value=datetime(1817, 3, 8), max_value=datetime.today())
 
-    with open('./Logo and Stock Symbols/stock symbols.csv', 'r') as stock_file:
+    with open('./stock symbols.csv', 'r') as stock_file:
         stock_list = pd.read_csv(stock_file)
         symbols = stock_list.iloc[:, 0]
         selected = st.multiselect(label='', options=symbols)
