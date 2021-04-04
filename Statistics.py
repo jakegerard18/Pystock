@@ -22,7 +22,7 @@ def app():
         start_date = st.sidebar.date_input("Starting Date:", value=(datetime.today() - timedelta(days=365)), min_value=datetime(1817, 3, 8), max_value=datetime.today())
         end_date = st.sidebar.date_input("Ending Date:", min_value=datetime(1817, 3, 8), max_value=datetime.today())
 
-        with open('./Logo and Stock Symbols/stock symbols.csv', 'r') as stock_file:
+        with open('./stock symbols.csv', 'r') as stock_file:
             stock_list = pd.read_csv(stock_file)
             symbols = stock_list.iloc[:, 0]
             selected = st.selectbox(label="", options=symbols)
